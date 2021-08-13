@@ -1,0 +1,37 @@
+{
+  "name": "base256-encoding",
+  "description": "Base256 encoding, the most memory-efficient encoding possible in JavaScript.",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "clean": "rimraf dist",
+    "compile": "tsc --skipLibCheck && tstei",
+    "compile:watch": "tsc --skipLibCheck --watch",
+    "test": "fava",
+    "test:watch": "fava -w",
+    "prepublishOnly": "npm run compile && npm run test"
+  },
+  "bugs": {
+    "url": "https://github.com/fabiospampinato/base256-encoding/issues"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Fabio Spampinato",
+    "email": "spampinabio@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fabiospampinato/base256-encoding.git"
+  },
+  "keywords": [
+    "base256",
+    "encoding"
+  ],
+  "devDependencies": {
+    "fava": "^0.0.4",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.3.5",
+    "typescript-transform-export-interop": "^1.0.4"
+  }
+}
