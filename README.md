@@ -4,7 +4,7 @@ Base256 encoding, the most memory-efficient encoding possible in JavaScript.
 
 ## Features
 
-If a string contains only the 256 codepoints from `\u0000` to `\u00ff` then in modern engine it will consume one byte of memory per character. If that's not true than two (!) bytes of memory per character will be consumed, even if only one character goes out of range. Base64 falls within the golden range but it only uses 25% of the available codepoints, Base256 uses all of them and is therefore more memory efficient.
+If a string contains only the 256 codepoints from `\u0000` to `\u00ff` then in modern engine it will consume one byte of memory per character. If that's not true then two (!) bytes of memory per character will be consumed, even if only one character goes out of range. Base64 falls within the golden range but it only uses 25% of the available codepoints, Base256 uses all of them and is therefore more memory efficient.
 
 If you need the encoded string to be URL-friendly or something or if you are encoding tiny things you should go with Base64, otherwise using Base256 will save you a decent amount of memory.
 
