@@ -7,7 +7,7 @@
     "forceConsistentCasingInFileNames": true,
     "inlineSourceMap": false,
     "jsx": "react",
-    "lib": ["dom", "es2020"],
+    "lib": ["es2020"],
     "module": "commonjs",
     "moduleResolution": "node",
     "newLine": "LF",
@@ -17,7 +17,7 @@
     "outDir": "dist",
     "pretty": true,
     "strictNullChecks": true,
-    "target": "es5"
+    "target": "es2016"
   },
   "include": [
     "src"

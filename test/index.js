@@ -45,7 +45,7 @@ describe ( 'Base256', it => {
     const assert = str => t.is ( Base256.decodeStr ( Base256.encodeStr ( str ) ), str );
     const property = fc.property ( fc.fullUnicode (), assert );
 
-    fc.assert ( property, { numRuns: 100000 } );
+    fc.assert ( property, { numRuns: 1000000 } );
 
   });
 
@@ -54,7 +54,7 @@ describe ( 'Base256', it => {
     const assert = str => t.is ( Base256.decodeStr ( Base256.encodeStr ( str ) ), str );
     const property = fc.property ( fc.fullUnicodeString (), assert );
 
-    fc.assert ( property, { numRuns: 100000 } );
+    fc.assert ( property, { numRuns: 1000000 } );
 
   });
 

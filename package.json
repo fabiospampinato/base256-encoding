@@ -11,7 +11,7 @@
     "compile:watch": "tsc --skipLibCheck --watch",
     "test": "fava",
     "test:watch": "fava -w",
-    "prepublishOnly": "npm run compile && npm run test"
+    "prepublishOnly": "npm run clean && npm run compile && npm run test"
   },
   "bugs": {
     "url": "https://github.com/fabiospampinato/base256-encoding/issues"
