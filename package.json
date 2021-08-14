@@ -5,6 +5,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
+    "benchmark": "node tasks/benchmark.js",
     "clean": "rimraf dist",
     "compile": "tsc --skipLibCheck && tstei",
     "compile:watch": "tsc --skipLibCheck --watch",
@@ -32,6 +33,7 @@
     "uint8-encoding": "^1.0.0"
   },
   "devDependencies": {
+    "benchloop": "^1.3.2",
     "fast-check": "^2.17.0",
     "fava": "^0.0.4",
     "rimraf": "^3.0.2",
