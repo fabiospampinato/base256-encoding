@@ -1,4 +1,8 @@
 
+/* IMPORT */
+
+import U8 from 'uint8-encoding';
+
 /* MAIN */
 
 const Base256 = {
@@ -13,11 +17,7 @@ const Base256 = {
 
   encodeStr: ( data: string ): string => {
 
-    const encoder = new TextEncoder ();
-    const uint8 = encoder.encode ( data );
-    const encoded = Base256.encode ( uint8 );
-
-    return encoded;
+    return Base256.encode ( U8.encode ( data ) );
 
   },
 
@@ -37,11 +37,7 @@ const Base256 = {
 
   decodeStr: ( data: string ): string => {
 
-    const decoder = new TextDecoder ();
-    const uint8 = Base256.decode ( data );
-    const decoded = decoder.decode ( uint8 );
-
-    return decoded;
+    return U8.decode ( Base256.decode ( data ) );
 
   }
 

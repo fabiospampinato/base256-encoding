@@ -28,6 +28,9 @@
     "base256",
     "encoding"
   ],
+  "dependencies": {
+    "uint8-encoding": "^1.0.0"
+  },
   "devDependencies": {
     "fast-check": "^2.17.0",
     "fava": "^0.0.4",
