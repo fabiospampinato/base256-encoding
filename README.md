@@ -11,7 +11,7 @@ If you need the encoded string to be URL-friendly or something or if you are enc
 ## Install
 
 ```sh
-npm install --save base256
+npm install --save base256-encoding
 ```
 
 ## Usage
