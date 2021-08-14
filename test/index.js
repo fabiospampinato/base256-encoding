@@ -1,6 +1,7 @@
 
 /* IMPORT */
 
+const fc = require ( 'fast-check' );
 const {describe} = require ( 'fava' );
 const {default: Base256} = require ( '../dist' );
 const Fixtures = require ( './fixtures' );
@@ -36,6 +37,24 @@ describe ( 'Base256', it => {
       t.deepEqual ( decoded, fixtureU8 );
 
     }
+
+  });
+
+  it ( 'works with fc-generated codepoints', t => {
+
+    const assert = str => t.is ( Base256.decodeStr ( Base256.encodeStr ( str ) ), str );
+    const property = fc.property ( fc.fullUnicode (), assert );
+
+    fc.assert ( property, { numRuns: 100000 } );
+
+  });
+
+  it ( 'works with fc-generated strings', t => {
+
+    const assert = str => t.is ( Base256.decodeStr ( Base256.encodeStr ( str ) ), str );
+    const property = fc.property ( fc.fullUnicodeString (), assert );
+
+    fc.assert ( property, { numRuns: 100000 } );
 
   });
 
