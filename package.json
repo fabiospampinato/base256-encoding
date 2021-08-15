@@ -1,7 +1,7 @@
 {
   "name": "base256-encoding",
   "description": "Base256 encoding, the most memory-efficient encoding possible in JavaScript.",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
