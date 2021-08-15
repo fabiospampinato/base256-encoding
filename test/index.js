@@ -58,4 +58,24 @@ describe ( 'Base256', it => {
 
   });
 
+  it ( 'can detect base256-encoded strings', t => {
+
+    const fixtures = [
+      ['', true],
+      ['abc', true],
+      ['\u0000\u00ff', true],
+      ['\u0100', false],
+      ['\uffff', false],
+      ['😃', false],
+      ['👪', false]
+    ];
+
+    for ( const [fixture, result] of fixtures ) {
+
+      t.is ( Base256.is ( fixture ), result );
+
+    }
+
+  });
+
 });

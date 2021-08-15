@@ -43,6 +43,13 @@ import Base256 from 'base256-encoding';
   const decoded = Base256.decodeStr ( encoded );
   console.log ( decoded ); // => 'Hello 😃'
 }
+
+// Check if a string is base256-encoded
+
+{
+  console.log ( Base256.is ( 'Hello' ) ); // => true
+  console.log ( Base256.is ( '😃' ) ); // => false
+}
 ```
 
 ## License

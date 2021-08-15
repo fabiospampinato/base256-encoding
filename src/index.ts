@@ -59,6 +59,11 @@ const Base256 = {
 
     return U8.decode ( Base256.decode ( data ) );
 
+  },
+
+  is: ( data: string ): boolean => {
+
+    return !/[\u0100-\uffff]/.test ( data );
   }
 
 };

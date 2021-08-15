@@ -46,4 +46,11 @@ benchmark ({
   }
 });
 
+benchmark ({
+  name: 'is',
+  fn: () => {
+    Base256.is ( WAP_ENCODED );
+  }
+});
+
 benchmark.summary ();
