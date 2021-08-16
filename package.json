@@ -30,6 +30,7 @@
     "encoding"
   ],
   "dependencies": {
+    "string-from-charcodes": "^1.0.0",
     "uint8-encoding": "^1.0.0"
   },
   "devDependencies": {

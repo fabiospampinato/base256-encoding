@@ -1,6 +1,7 @@
 
 /* IMPORT */
 
+import fromCharCodes from 'string-from-charcodes';
 import U8 from 'uint8-encoding';
 
 /* MAIN */
@@ -11,27 +12,7 @@ const Base256 = {
 
   encode: ( data: Uint8Array ): string => {
 
-    const {length} = data;
-
-    if ( length <= 8192 ) { // Small enough length, no "call stack size exceeded" error will be thrown
-
-      return String.fromCharCode.apply ( String, Array.from ( data ) );
-
-    } else { // Length too large, encoding in chunks
-
-      const chunks: string[] = [];
-
-      for ( let ci = 0, i = 0; i < length; ci++ ) {
-
-        const datum = Array.from ( data.slice ( i, i += 8192 ) );
-
-        chunks[ci] = String.fromCharCode.apply ( String, datum );
-
-      }
-
-      return chunks.join ( '' );
-
-    }
+    return fromCharCodes ( data );
 
   },
 
