@@ -1,7 +1,7 @@
 {
   "name": "base256-encoding",
   "description": "Base256 encoding, a.k.a. latin1 encoding, the most memory-efficient encoding possible in JavaScript.",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "main": "dist/node.js",
   "types": "dist/node.d.ts",
   "exports": {
