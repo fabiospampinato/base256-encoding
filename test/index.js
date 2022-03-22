@@ -1,9 +1,10 @@
 
 /* IMPORT */
 
+const {Buffer} = require ( 'buffer' );
 const fc = require ( 'fast-check' );
 const {describe} = require ( 'fava' );
-const {default: Base256} = require ( '../dist' );
+const {default: Base256} = require ( '../dist/node' );
 const Fixtures = require ( './fixtures' );
 
 /* MAIN */
@@ -52,6 +53,15 @@ describe ( 'Base256', it => {
   it ( 'works with fc-generated strings', t => {
 
     const assert = str => t.is ( Base256.decodeStr ( Base256.encodeStr ( str ) ), str );
+    const property = fc.property ( fc.fullUnicodeString (), assert );
+
+    fc.assert ( property, { numRuns: 1000000 } );
+
+  });
+
+  it ( 'works like Buffer', t => {
+
+    const assert = str => Base256.is ( str ) ? t.deepEqual ( Base256.encodeStr ( str ), Buffer.from ( str ).toString ( 'latin1' ) ) : t.pass ();
     const property = fc.property ( fc.fullUnicodeString (), assert );
 
     fc.assert ( property, { numRuns: 1000000 } );

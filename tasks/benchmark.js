@@ -4,7 +4,7 @@
 const benchmark = require ( 'benchloop' );
 const fs = require ( 'fs' );
 const U8 = require ( 'uint8-encoding' );
-const {default: Base256} = require ( '../dist' );
+const {default: Base256} = require ( '../dist/node' );
 
 const WAP = fs.readFileSync ( './tasks/war_and_peace.txt', 'utf8' );
 const WAP_UINT8 = U8.encode ( WAP );

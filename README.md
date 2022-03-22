@@ -1,6 +1,6 @@
 # Base256
 
-Base256 encoding, the most memory-efficient encoding possible in JavaScript.
+Base256 encoding, a.k.a. latin1 encoding, the most memory-efficient encoding possible in JavaScript.
 
 ## Features
 

@@ -3,10 +3,11 @@
 
 import fromCharCodes from 'string-from-charcodes';
 import U8 from 'uint8-encoding';
+import is from './is';
 
 /* MAIN */
 
-const Base256 = {
+const Browser = {
 
   /* API */
 
@@ -18,7 +19,7 @@ const Base256 = {
 
   encodeStr: ( data: string ): string => {
 
-    return Base256.encode ( U8.encode ( data ) );
+    return Browser.encode ( U8.encode ( data ) );
 
   },
 
@@ -38,17 +39,14 @@ const Base256 = {
 
   decodeStr: ( data: string ): string => {
 
-    return U8.decode ( Base256.decode ( data ) );
+    return U8.decode ( Browser.decode ( data ) );
 
   },
 
-  is: ( data: string ): boolean => {
-
-    return !/[\u0100-\uffff]/.test ( data );
-  }
+  is
 
 };
 
 /* EXPORT */
 
-export default Base256;
+export default Browser;
