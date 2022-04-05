@@ -1,97 +1,106 @@
 
 /* IMPORT */
 
-const {Buffer} = require ( 'buffer' );
-const fc = require ( 'fast-check' );
-const {describe} = require ( 'fava' );
-const {default: Base256} = require ( '../dist/node' );
-const Fixtures = require ( './fixtures' );
+import fc from 'fast-check';
+import {describe} from 'fava';
+import {Buffer} from 'node:buffer';
+import Base256Browser from '../dist/browser.js';
+import Base256Node from '../dist/node.js';
+import Fixtures from './fixtures.js';
 
 /* MAIN */
 
-describe ( 'Base256', it => {
+describe ( 'Base256', () => {
 
-  it ( 'returns an actual Uint8Array', t => {
+  for ( const [Base256, name] of [[Base256Browser, 'browser'], [Base256Node, 'node']] ) {
 
-    t.is ( Base256.decode ( 'foo' ).constructor, Uint8Array );
+    describe ( name, it => {
 
-  });
+      it ( 'returns an actual Uint8Array', t => {
 
-  it ( 'works with strings', t => {
+        t.is ( Base256.decode ( 'foo' ).constructor, Uint8Array );
 
-    for ( const fixture of Fixtures ) {
+      });
 
-      const encoded = Base256.encodeStr ( fixture );
-      const decoded = Base256.decodeStr ( encoded );
+      it ( 'works with strings', t => {
 
-      t.is ( decoded, fixture );
+        for ( const fixture of Fixtures ) {
 
-    }
+          const encoded = Base256.encodeStr ( fixture );
+          const decoded = Base256.decodeStr ( encoded );
 
-  });
+          t.is ( decoded, fixture );
 
-  it ( 'works with Uint8Arrays', t => {
+        }
 
-    const encoder = new TextEncoder ();
+      });
 
-    for ( const fixture of Fixtures ) {
+      it ( 'works with Uint8Arrays', t => {
 
-      const fixtureU8 = encoder.encode ( fixture );
+        const encoder = new TextEncoder ();
 
-      const encoded = Base256.encode ( fixtureU8 );
-      const decoded = Base256.decode ( encoded );
+        for ( const fixture of Fixtures ) {
 
-      t.deepEqual ( decoded, fixtureU8 );
+          const fixtureU8 = encoder.encode ( fixture );
 
-    }
+          const encoded = Base256.encode ( fixtureU8 );
+          const decoded = Base256.decode ( encoded );
 
-  });
+          t.deepEqual ( decoded, fixtureU8 );
 
-  it ( 'works with fc-generated codepoints', t => {
+        }
 
-    const assert = str => t.is ( Base256.decodeStr ( Base256.encodeStr ( str ) ), str );
-    const property = fc.property ( fc.fullUnicode (), assert );
+      });
 
-    fc.assert ( property, { numRuns: 1000000 } );
+      it ( 'works with fc-generated codepoints', t => {
 
-  });
+        const assert = str => t.is ( Base256.decodeStr ( Base256.encodeStr ( str ) ), str );
+        const property = fc.property ( fc.fullUnicode (), assert );
 
-  it ( 'works with fc-generated strings', t => {
+        fc.assert ( property, { numRuns: 1000000 } );
 
-    const assert = str => t.is ( Base256.decodeStr ( Base256.encodeStr ( str ) ), str );
-    const property = fc.property ( fc.fullUnicodeString (), assert );
+      });
 
-    fc.assert ( property, { numRuns: 1000000 } );
+      it ( 'works with fc-generated strings', t => {
 
-  });
+        const assert = str => t.is ( Base256.decodeStr ( Base256.encodeStr ( str ) ), str );
+        const property = fc.property ( fc.fullUnicodeString (), assert );
 
-  it ( 'works like Buffer', t => {
+        fc.assert ( property, { numRuns: 1000000 } );
 
-    const assert = str => Base256.is ( str ) ? t.deepEqual ( Base256.encodeStr ( str ), Buffer.from ( str ).toString ( 'latin1' ) ) : t.pass ();
-    const property = fc.property ( fc.fullUnicodeString (), assert );
+      });
 
-    fc.assert ( property, { numRuns: 1000000 } );
+      it ( 'works like Buffer', t => {
 
-  });
+        const assert = str => Base256.is ( str ) ? t.deepEqual ( Base256.encodeStr ( str ), Buffer.from ( str ).toString ( 'latin1' ) ) : t.pass ();
+        const property = fc.property ( fc.fullUnicodeString (), assert );
 
-  it ( 'can detect base256-encoded strings', t => {
+        fc.assert ( property, { numRuns: 1000000 } );
 
-    const fixtures = [
-      ['', true],
-      ['abc', true],
-      ['\u0000\u00ff', true],
-      ['\u0100', false],
-      ['\uffff', false],
-      ['😃', false],
-      ['👪', false]
-    ];
+      });
 
-    for ( const [fixture, result] of fixtures ) {
+      it ( 'can detect base256-encoded strings', t => {
 
-      t.is ( Base256.is ( fixture ), result );
+        const fixtures = [
+          ['', true],
+          ['abc', true],
+          ['\u0000\u00ff', true],
+          ['\u0100', false],
+          ['\uffff', false],
+          ['😃', false],
+          ['👪', false]
+        ];
 
-    }
+        for ( const [fixture, result] of fixtures ) {
 
-  });
+          t.is ( Base256.is ( fixture ), result );
+
+        }
+
+      });
+
+    });
+
+  }
 
 });

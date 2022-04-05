@@ -1,33 +1,24 @@
 {
   "name": "base256-encoding",
+  "repository": "github:fabiospampinato/base256-encoding",
   "description": "Base256 encoding, a.k.a. latin1 encoding, the most memory-efficient encoding possible in JavaScript.",
   "version": "1.1.2",
+  "type": "module",
   "main": "dist/node.js",
-  "types": "dist/node.d.ts",
+  "types": "./dist/node.d.ts",
   "exports": {
     "node": "./dist/node.js",
     "default": "./dist/browser.js"
   },
   "scripts": {
-    "benchmark": "node tasks/benchmark.js",
-    "clean": "rimraf dist",
-    "compile": "tsc --skipLibCheck",
-    "compile:watch": "tsc --skipLibCheck --watch",
-    "test": "fava",
-    "test:watch": "fava -w",
+    "benchmark": "tsex benchmark",
+    "benchmark:watch": "tsex benchmark --watch",
+    "clean": "tsex clean",
+    "compile": "tsex compile",
+    "compile:watch": "tsex compile --watch",
+    "test": "tsex test",
+    "test:watch": "tsex test --watch",
     "prepublishOnly": "npm run clean && npm run compile && npm run test"
-  },
-  "bugs": {
-    "url": "https://github.com/fabiospampinato/base256-encoding/issues"
-  },
-  "license": "MIT",
-  "author": {
-    "name": "Fabio Spampinato",
-    "email": "spampinabio@gmail.com"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/fabiospampinato/base256-encoding.git"
   },
   "keywords": [
     "base256",
@@ -35,15 +26,15 @@
     "encoding"
   ],
   "dependencies": {
-    "string-from-charcodes": "^1.0.0",
-    "uint8-encoding": "^1.0.0"
+    "string-from-charcodes": "^2.0.0",
+    "uint8-encoding": "^2.0.0"
   },
   "devDependencies": {
-    "@types/node": "^17.0.22",
+    "@types/node": "^17.0.23",
     "benchloop": "^1.3.2",
-    "fast-check": "^2.23.2",
-    "fava": "^0.0.5",
-    "rimraf": "^3.0.2",
-    "typescript": "^4.6.2"
+    "fast-check": "^2.24.0",
+    "fava": "^0.0.6",
+    "tsex": "^1.0.4",
+    "typescript": "^4.6.3"
   }
 }

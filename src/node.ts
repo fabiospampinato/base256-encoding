@@ -1,6 +1,7 @@
 
 /* IMPORT */
 
+import {Buffer} from 'node:buffer';
 import is from './is';
 
 /* MAIN */

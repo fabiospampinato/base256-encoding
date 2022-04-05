@@ -1,10 +1,10 @@
 
 /* IMPORT */
 
-const benchmark = require ( 'benchloop' );
-const fs = require ( 'fs' );
-const U8 = require ( 'uint8-encoding' );
-const {default: Base256} = require ( '../dist/node' );
+import benchmark from 'benchloop';
+import fs from 'node:fs';
+import U8 from 'uint8-encoding';
+import Base256 from '../dist/node.js';
 
 const WAP = fs.readFileSync ( './tasks/war_and_peace.txt', 'utf8' );
 const WAP_UINT8 = U8.encode ( WAP );
