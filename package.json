@@ -26,15 +26,15 @@
     "encoding"
   ],
   "dependencies": {
+    "node-buffer-encoding": "^1.0.1",
     "string-from-charcodes": "^2.0.0",
     "uint8-encoding": "^2.0.0"
   },
   "devDependencies": {
-    "@types/node": "^17.0.23",
     "benchloop": "^1.3.2",
     "fast-check": "^2.24.0",
     "fava": "^0.0.6",
-    "tsex": "^1.0.4",
+    "tsex": "^1.1.1",
     "typescript": "^4.6.3"
   }
 }
