@@ -16,8 +16,7 @@ const WAP_ENCODED_UINT8 = Base256.encode ( WAP_UINT8 );
 /* MAIN */
 
 benchmark.defaultOptions = Object.assign ( benchmark.defaultOptions, {
-  iterations: 1,
-  log: 'compact'
+  iterations: 1
 });
 
 benchmark ({
