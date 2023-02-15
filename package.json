@@ -13,6 +13,7 @@
   "scripts": {
     "benchmark": "tsex benchmark",
     "benchmark:watch": "tsex benchmark --watch",
+    "benchmark:update": "wget https://www.gutenberg.org/cache/epub/2600/pg2600.txt -O tasks/fixture.txt",
     "clean": "tsex clean",
     "compile": "tsex compile",
     "compile:watch": "tsex compile --watch",

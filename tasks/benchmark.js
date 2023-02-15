@@ -6,7 +6,9 @@ import fs from 'node:fs';
 import U8 from 'uint8-encoding';
 import Base256 from '../dist/node.js';
 
-const WAP = fs.readFileSync ( './tasks/war_and_peace.txt', 'utf8' );
+/* HELPERS */
+
+const WAP = fs.readFileSync ( './tasks/fixture.txt', 'utf8' );
 const WAP_UINT8 = U8.encode ( WAP );
 const WAP_ENCODED = Base256.encodeStr ( WAP );
 const WAP_ENCODED_UINT8 = Base256.encode ( WAP_UINT8 );
