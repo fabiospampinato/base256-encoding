@@ -2,7 +2,7 @@
   "name": "base256-encoding",
   "repository": "github:fabiospampinato/base256-encoding",
   "description": "Base256 encoding, a.k.a. latin1 encoding, the most memory-efficient encoding possible in JavaScript.",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "type": "module",
   "main": "dist/node.js",
   "types": "./dist/node.d.ts",
