@@ -2,6 +2,7 @@
   "name": "base256-encoding",
   "repository": "github:fabiospampinato/base256-encoding",
   "description": "Base256 encoding, a.k.a. latin1 encoding, the most memory-efficient encoding possible in JavaScript.",
+  "license": "MIT",
   "version": "2.0.2",
   "type": "module",
   "main": "dist/node.js",
@@ -27,15 +28,15 @@
     "encoding"
   ],
   "dependencies": {
-    "node-buffer-encoding": "^1.0.1",
-    "string-from-charcodes": "^2.0.0",
-    "uint8-encoding": "^2.0.0"
+    "node-buffer-encoding": "^1.0.3",
+    "string-from-charcodes": "^2.0.1",
+    "uint8-encoding": "^2.0.1"
   },
   "devDependencies": {
     "benchloop": "^2.1.1",
-    "fast-check": "^3.12.0",
-    "fava": "^0.2.1",
-    "tsex": "^3.0.1",
-    "typescript": "^5.1.6"
+    "fast-check": "^3.23.2",
+    "fava": "^0.3.4",
+    "tsex": "^4.0.2",
+    "typescript": "^5.7.3"
   }
 }
